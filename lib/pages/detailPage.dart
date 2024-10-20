@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lab1/static.dart';
 
-import 'dashboard.dart';
 
 class Detailpage extends StatefulWidget {
   const Detailpage({super.key});
@@ -40,50 +39,50 @@ class _DetailpageState extends State<Detailpage> {
                     onTap: (){
                   Navigator.pop(context);
                 },
-                    child: Icon(Icons.arrow_back_outlined,color: Colors.white,size: 30,))),
+                    child: const Icon(Icons.arrow_back_outlined,color: Colors.white,size: 30,))),
 
-                Positioned(right: 15,top: 50,child: Icon(Icons.share,color: Colors.white,size: 30,)),
+                const Positioned(right: 15,top: 50,child: Icon(Icons.share,color: Colors.white,size: 30,)),
 
-                Container(  height: size.height/4.1,
-                    width: size.width,child: Center(child: Icon(Icons.play_circle,size: 50,color: Colors.white,)))
+                SizedBox(  height: size.height/4.1,
+                    width: size.width,child: const Center(child: Icon(Icons.play_circle,size: 50,color: Colors.white,)))
 
               ],
             ),
 
             Container(
-              padding: EdgeInsets.only(top: 15,bottom: 10),
+              padding: const EdgeInsets.only(top: 15,bottom: 10),
               width: size.width/1.1,
               child: Text( StaticValue.newsdetail!.title!,
-                style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,
+                style: const TextStyle(color: Colors.black,fontWeight: FontWeight.bold,
                   fontSize: 28,),overflow: TextOverflow.ellipsis,maxLines: 2,),
             ),
 
-            Container(
+            SizedBox(
               width: size.width/1.1,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text( StaticValue.newsdetail!.author!,
-                    style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,
+                    style: const TextStyle(color: Colors.black,fontWeight: FontWeight.bold,
                       fontSize: 12,),overflow: TextOverflow.ellipsis,maxLines: 2,),
                   Text(StaticValue.datetimeconverter( StaticValue.newsdetail!.publishedAt!),
-                    style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,
+                    style: const TextStyle(color: Colors.black,fontWeight: FontWeight.bold,
                       fontSize: 12,),overflow: TextOverflow.ellipsis,maxLines: 2,)
                 ],
               ),
             ),
 
-            Container(
+            SizedBox(
               width: size.width/1.1,
               child: Text( StaticValue.newsdetail!.description!,
-                style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,
+                style: const TextStyle(color: Colors.black,fontWeight: FontWeight.bold,
                   fontSize: 15,),textAlign: TextAlign.justify,overflow: TextOverflow.ellipsis,maxLines: 8,),
             ),
 
 
             Container(
               color: Colors.white,
-              margin: EdgeInsets.only(top: 15),
+              margin: const EdgeInsets.only(top: 15),
               padding: EdgeInsets.zero,
               height: size.height/2.2,
               width: size.width/1,

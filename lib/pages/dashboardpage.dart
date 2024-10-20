@@ -4,6 +4,8 @@ import 'package:lab1/model/newsapi.dart';
 import '../api/get.dart';
 
 class Dashboardpage extends StatefulWidget{
+  const Dashboardpage({super.key});
+
   @override
   State<StatefulWidget> createState() {
    return DashboardpageState();
@@ -38,20 +40,20 @@ class DashboardpageState extends State<Dashboardpage>{
         Positioned(
           bottom: 30,
           left: 15,
-          child: Container(
+          child: SizedBox(
             width: size.width/2,
-            child: Text(articledata!.title!,
-            style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,
+            child: Text(articledata.title!,
+            style: const TextStyle(color: Colors.white,fontWeight: FontWeight.bold,
             fontSize: 28,),overflow: TextOverflow.ellipsis,maxLines: 2,),
           ),
         ),
         Positioned(
           bottom: 8,
           left: 15,
-          child: Container(
+          child: SizedBox(
             width: size.width/2,
             child: Text(articledata.publishedAt!,
-              style: TextStyle(color: Colors.white,fontWeight: FontWeight.normal,
+              style: const TextStyle(color: Colors.white,fontWeight: FontWeight.normal,
                 fontSize: 15,),overflow: TextOverflow.ellipsis,maxLines: 1,),
           ),
         ),
@@ -63,7 +65,7 @@ class DashboardpageState extends State<Dashboardpage>{
     return Container(
       height: size.height/5,
       width: size.width/1.2,
-      margin: EdgeInsets.only(left: 2),
+      margin: const EdgeInsets.only(left: 2),
       decoration: BoxDecoration(
         color: Color(color),
         borderRadius: BorderRadius.circular(15),
@@ -83,7 +85,7 @@ class DashboardpageState extends State<Dashboardpage>{
     var size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(),
-      body: Container(
+      body: SizedBox(
         height: size.height,
         width: size.width,
         child: Column(
@@ -93,14 +95,14 @@ class DashboardpageState extends State<Dashboardpage>{
                 builder: (BuildContext context, AsyncSnapshot snapshot){
                   switch (snapshot.connectionState){
                     case ConnectionState.none:
-                      return CircularProgressIndicator();
+                      return const CircularProgressIndicator();
                       // internet not working
                     case ConnectionState.active:
-                      return CircularProgressIndicator();
+                      return const CircularProgressIndicator();
                       // progress bar //loading
                     case ConnectionState.waiting:
                       //loading
-                      return CircularProgressIndicator();
+                      return const CircularProgressIndicator();
                     case ConnectionState.done:
                       //ui
                       if(snapshot.hasData){
@@ -108,7 +110,7 @@ class DashboardpageState extends State<Dashboardpage>{
                         NewsApi data = snapshot.data;
                         return Column(
                           children: [
-                            Container(
+                            SizedBox(
                               width: size.width,
                               height: size.height/5,
                               child: ListView.builder(
@@ -119,22 +121,22 @@ class DashboardpageState extends State<Dashboardpage>{
                                 },
                               ),
                             ),
-                            SizedBox(height: 10,),
-                            Container(
+                            const SizedBox(height: 10,),
+                            SizedBox(
                               height: size.height/1.5,
                               child: SingleChildScrollView(
                                 scrollDirection: Axis.vertical,
                                 child: Column(
                                   children: [
-                                    SizedBox(height: 10,),
+                                    const SizedBox(height: 10,),
                                     verticalitem(size, 0xffff55555),
-                                    SizedBox(height: 10,),
+                                    const SizedBox(height: 10,),
                                     verticalitem(size, 0xfff333555),
-                                    SizedBox(height: 10,),
+                                    const SizedBox(height: 10,),
                                     verticalitem(size, 0xff222f555),
-                                    SizedBox(height: 10,),
+                                    const SizedBox(height: 10,),
                                     verticalitem(size, 0xffffff555),
-                                    SizedBox(height: 10,),
+                                    const SizedBox(height: 10,),
                                     verticalitem(size, 0xffffff555),
                                   ],
                                 ),
@@ -144,7 +146,7 @@ class DashboardpageState extends State<Dashboardpage>{
                         );
                       }else{
                         // no data
-                        return CircularProgressIndicator();
+                        return const CircularProgressIndicator();
                       }
                   }
                 }),

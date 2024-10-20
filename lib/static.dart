@@ -21,7 +21,7 @@ class StaticValue {
 
   static String defaulturl = "https://paultan.org/image/2020/12/Volkswagen-China-production-630x399.jpg";
 
-  static Articles? newsdetail = null;
+  static Articles? newsdetail;
 
   //api key
   static String apiKey = "a25a0c0b883c4f389ff5c23da0f9dfea";

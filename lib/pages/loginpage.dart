@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:lab1/api/get.dart';
 
 import 'dashboard.dart';
-import 'dashboardpage.dart';
 
 class loginPage extends StatefulWidget{
+  const loginPage({super.key});
+
   @override
   State<StatefulWidget> createState() {
    return loginPageState();
@@ -18,14 +18,14 @@ class loginPageState extends State<loginPage>{
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
-      body: Container(
+      body: SizedBox(
         width: size.width,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Container(
+            SizedBox(
               width: size.width/1.8,
-              child: Row(
+              child: const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Icon(Icons.house,size: 30,color: Colors.blue,),
@@ -33,7 +33,7 @@ class loginPageState extends State<loginPage>{
                 ],
               ),
             ),
-            SizedBox(height: 15,),
+            const SizedBox(height: 15,),
             Container(
               height: size.height/3,
               width: size.width/1.1,
@@ -43,10 +43,10 @@ class loginPageState extends State<loginPage>{
               ),
               child: Column(
                 children: [
-                  SizedBox(height: 15,),
-                  Text("Sign In",style: TextStyle(color: Colors.black,
+                  const SizedBox(height: 15,),
+                  const Text("Sign In",style: TextStyle(color: Colors.black,
                       fontSize: 17,fontWeight: FontWeight.bold),),
-                  SizedBox(height: 15,),
+                  const SizedBox(height: 15,),
                   Container(
                     height: 35,
                     width: size.width/1.5,
@@ -54,12 +54,12 @@ class loginPageState extends State<loginPage>{
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(15)
                     ),
-                    child: Center(
+                    child: const Center(
                       child: Text("Email",style: TextStyle(color:
                       Colors.blueGrey,fontSize: 12),),
                     ),
                   ),
-                  SizedBox(height: 15,),
+                  const SizedBox(height: 15,),
                   Container(
                     height: 35,
                     width: size.width/1.5,
@@ -67,17 +67,17 @@ class loginPageState extends State<loginPage>{
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(15)
                     ),
-                    child: Center(
+                    child: const Center(
                       child: Text("Password",style: TextStyle(color:
                       Colors.blueGrey,fontSize: 12),),
                     ),
                   ),
-                  SizedBox(height: 20,),
+                  const SizedBox(height: 20,),
                   GestureDetector(
                     onTap: (){
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) =>  dashboardPage()),
+                        MaterialPageRoute(builder: (context) =>  const dashboardPage()),
                       );
                     },
                     child: Container(
@@ -87,7 +87,7 @@ class loginPageState extends State<loginPage>{
                           color: Colors.red,
                           borderRadius: BorderRadius.circular(15)
                       ),
-                      child: Center(
+                      child: const Center(
                         child: Text("Signin",style: TextStyle(color:
                         Colors.white,fontSize: 12),),
                       ),
