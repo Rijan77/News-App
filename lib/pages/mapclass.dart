@@ -16,7 +16,10 @@ class MapSampleState extends State<MapSample> {
   final Completer<GoogleMapController> _controller =
   Completer<GoogleMapController>();
 
-  var _maptheme;
+  String? _maptheme; // Nullable to handle loading
+  final Map<MarkerId, Marker> markers = {}; // Store markers
+
+
 
   Future _loadMapStyle() async{
     _maptheme = await rootBundle.loadString("lib/raw/mapsThem.Json");
@@ -32,8 +35,31 @@ class MapSampleState extends State<MapSample> {
   void initState() {
     // TODO: implement initState
     super.initState();
+    createlistofmarker();
     _loadMapStyle();
   }
+
+  createlistofmarker() {
+    for (int i = 0; i < 10; i++) {
+      final double increment = i + 0.8;
+      final marker = Marker(
+        markerId: MarkerId(increment.toString()),
+
+        position:  LatLng(9.66911 - (0.02 * i), 80.014007 - (0.02 * i)),
+        infoWindow:  InfoWindow(
+          title: 'T' + increment.toString(),
+          snippet: 'A' + increment.toString(),
+        ),
+      );
+      setState(() {
+        markers [MarkerId(increment.toString())] = marker;
+
+      });
+
+    }
+  }
+
+
 
   static const CameraPosition _kLake = CameraPosition(
       bearing: 192.8334901395799,
@@ -41,6 +67,7 @@ class MapSampleState extends State<MapSample> {
       tilt: 59.440717697143555,
       zoom: 19.151926040649414);
 
+  Map<MarkerId, Marker>marker = <MarkerId, Marker>{};
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,15 +79,17 @@ class MapSampleState extends State<MapSample> {
           controller.setMapStyle(_maptheme);
         },
 
-        markers: {
-          Marker(
-            markerId: MarkerId('Patan'),
-            position: LatLng(27.6683, 85.3206),
-            infoWindow: InfoWindow(
-              title: "Patan"
-            )
-          )
-        },
+        markers: markers.values.toSet(),
+
+        // markers: {
+        //   const Marker(
+        //     markerId: MarkerId('Patan'),
+        //     position: LatLng(27.6683, 85.3206),
+        //     infoWindow: InfoWindow(
+        //       title: "Patan"
+        //     )
+        //   )
+        // },
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: _goToTheLake,

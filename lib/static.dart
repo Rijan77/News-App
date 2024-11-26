@@ -4,7 +4,12 @@ import 'model/newsapi.dart';
 
 class StaticValue {
 
-  //datetimeformat converter
+  static String username = "";
+
+  static var CLIENT_ID = "JB0BBQ4aD0UqIThFJwAKBgAXEUkEGQUBBAwdOgABHD4DChwUAB0R";
+  static var SECRET_KEY = "BhwIWQQADhIYSxILExMcAgFXFhcOBwAKBgAXEQ==";
+
+      //datetimeformat converter
   static String datetimeconverter(String datetimeutc){
    // format string parse
     // output format
